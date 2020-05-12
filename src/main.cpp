@@ -56,16 +56,25 @@ int main(int argc, const char **argv)
     // user input for these values using std::cin. Pass the user input to the
     // RoutePlanner object below in place of 10, 10, 90, 90.
 
-    float start_x = 10; 
-    float start_y = 10;
-    float end_x = 90;
-    float end_y = 90;
+    float start_x; 
+    float start_y;
+    float end_x;
+    float end_y;
+
+	//Prompt user for x & y coordinates for the program:
+	std::cout << "Please enter starting x and y coordinates, and the ending x and y coordinates: " <<std::endl;
+	
+	//Used std::cin to stream input from keyboard:
+	std::cin >> start_x;
+	std::cin >> start_y;
+	std::cin >> end_x;
+	std::cin >> end_y;
+
 
     // Build Model.
     RouteModel model{osm_data};
 
     // Create RoutePlanner object and perform A* search.
-    // RoutePlanner route_planner{model, 10, 10, 90, 90};
 
     //Pass values into RoutePlanner object:
     RoutePlanner route_planner{model, start_x, start_y, end_x, end_y};
